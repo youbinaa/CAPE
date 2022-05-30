@@ -1,0 +1,21 @@
+1) run drop_triples.py
+--> will drop every head entities other than i, my, me (needs revision to capture more triples)
+--> will drop relations and tail entities with <blank>, <none>, other
+--> create file non_dropped_triples.json 
+    * sentence: [triple1, triple2, ..., etc.]
+
+2) run match_personachat.py
+--> will iterate through every sentence in non_dropped_triples.json
+--> find personachat's dialogue that the sentence belongs to
+--> create file dialogue_matched.json 
+    * [{"source":"", "target_triple":[], "personas":[]}, etc.]
+
+3) run annotate_all.py
+--> will convert persona set's sentences into triples in dialogue_matched.json
+--> create file inference_dataset.json 
+    * [{"source":"", "target_triple":[], "personas":[], "personas_triple":[]}]
+
+
+**안한거 
+-> 중복 확인 personas_triple해서 drop하기
+-> none이 붙어있음 이거 날리기 
